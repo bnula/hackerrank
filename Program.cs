@@ -7,9 +7,9 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            var path = "DDUUDDUDUUUD";
-            var valleys = CountingValleys.cntValleys(8, path);
-            Console.WriteLine(valleys);
+            var c = new List<int> { 0, 0, 0, 1, 0, 0 };
+            var jumps = JumpingClouds.NumOfJumps(c);
+            Console.WriteLine(jumps);
         }
     }
 }
