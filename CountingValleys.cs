@@ -11,7 +11,6 @@ namespace HackerRank
         public static int cntValleys(int steps, string path)
         {
             var level = 0;
-            bool valley = false;
             int valNum = 0;
             foreach (var item in path)
             {
@@ -23,17 +22,9 @@ namespace HackerRank
                 {
                     level--;
                 }
-                if (level < 0)
+                if (level == 0 && item == 'U')
                 {
-                    valley = true;
-                }
-                if (valley)
-                {
-                    if (level == 0)
-                    {
-                        valNum++;
-                        valley = false;
-                    }
+                    valNum++;
                 }
             }
             return valNum;
