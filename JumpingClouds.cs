@@ -11,28 +11,15 @@ namespace HackerRank
         public static int NumOfJumps(List<int> c)
         {
             var end = c.Count();
-            bool skip = false;
             int jumps = 0;
+            // add jump for each iteration
             for (int i = 0; i < end-1; i++)
             {
-                if (skip)
+                jumps++;
+                // if the 2nd index in front has zero, add increase i and keep the jumps the same
+                if (i+2 < end && c[i+2] == 0)
                 {
-                    skip = false;
-                    continue;
-                }
-                if (i != end - 2)
-                {
-                    if (c[i + 2] == 0)
-                    {
-                        jumps++;
-                        skip = true;
-                        continue;
-                    }
-                }
-                if (c[i+1] == 0)
-                {
-                    jumps++;
-                    continue;
+                    i++;
                 }
             }
             return jumps;
