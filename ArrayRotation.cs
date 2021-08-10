@@ -21,6 +21,23 @@ namespace HackerRank
             return inputs.ToList();
         }
 
+        public static List<int> RotateLeftRecur(List<int> a, int d)
+        {
+            if (d == 0)
+            {
+                return a;
+            }
+            var end = a.Count();
+            var temp = a[0];
+            for (int i = 0; i < end-1; i++)
+            {
+                a[i] = a[i + 1];
+            }
+            a[end - 1] = temp;
+            d--;
+            return RotateLeft(a, d);
+        }
+
         public static List<int> ReverseArray(List<int> a, int d)
         {
             Stack<int> inputs = new Stack<int>(a);
