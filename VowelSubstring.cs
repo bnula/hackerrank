@@ -12,28 +12,52 @@ namespace HackerRank
         {
             char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
             var len = s.Length;
-            int sum;
-            int max = 0;
-            string topString = "";
-            for (int i = 0; i <= len - k; i++)
+            var max = 0;
+            var itt = 0;
+            Queue<char> str = new Queue<char>(s);
+            StringBuilder checkStr = new StringBuilder();
+            StringBuilder bestStr = new StringBuilder();
+            for (int i = 0; i < k; i++)
             {
-                var sub = s.Substring(i, k);
-                sum = 0;
-                foreach (var item in sub)
+                var chr = str.Dequeue();
+                if (vowels.Contains(chr))
                 {
-                    if (vowels.Contains(item))
-                    {
-                        sum++;
-                    }
+                    max++;
+                }
+                itt++;
+                bestStr.Append(chr);
+                checkStr.Append(chr);
+            }
+            for (int i = itt; i < len; i++)
+            {
+                var sum = max;
+                var addChr = str.Dequeue();
+                var removeStr = checkStr[0];
+                if (vowels.Contains(addChr))
+                {
+                    sum++;
+                } else if (!vowels.Contains(addChr))
+                {
+                    sum--;
+                }
+                if (vowels.Contains(removeStr))
+                {
+                    sum++;
+                }
+                else
+                {
+                    sum--;
                 }
                 if (sum > max)
                 {
                     max = sum;
-                    topString = sub;
+                    bestStr = checkStr;
                 }
+                checkStr.Remove(0, 1);
+                checkStr.Append(addChr);
             }
-            if (max == 0) topString = "Not found!";
-            return topString;
+            return bestStr.ToString();
+            
         }
     }
 }
