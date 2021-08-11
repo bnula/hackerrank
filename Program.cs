@@ -7,8 +7,8 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            int[] arr = { 7, 1, 3, 2, 4, 5, 6 };
-            MinimumSwapsTwo.FindNumSwaps(arr);
+            List<int> arr = new List<int> { 1, 12, 5, 111, 200, 1000, 10 };
+            Console.WriteLine(MarkAndToys.MaximumToysReverseBubble(arr, 50));
         }
     }
 }
