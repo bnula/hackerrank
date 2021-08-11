@@ -7,9 +7,8 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            var str = "azerdii";
-            var pwd = VowelSubstring.FindSubstring(str, 5);
-            Console.WriteLine(pwd);
+            int[] arr = { 7, 1, 3, 2, 4, 5, 6 };
+            MinimumSwapsTwo.FindNumSwaps(arr);
         }
     }
 }
