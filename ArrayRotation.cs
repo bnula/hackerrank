@@ -11,10 +11,10 @@ namespace HackerRank
         public static List<int> RotateLeft(List<int> a, int d)
         {
             Queue<int> inputs = new Queue<int>(a);
-            var resultList = new List<int>();
 
-            while (d-- > 0)
+            while (d > 0)
             {
+                d--;
                 inputs.Enqueue(inputs.Dequeue());
             }
 
