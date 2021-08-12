@@ -7,6 +7,7 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(TwoStrings.ShareSubstring("hello", "world"));
         }
     }
 }
