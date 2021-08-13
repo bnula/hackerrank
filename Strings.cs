@@ -8,6 +8,16 @@ namespace HackerRank
 {
     public class Strings
     {
+        public static int AlternatingCharacters(string s)
+        {
+            int dels = 0;
+            for (int i = 0; i < s.Length-1; i++)
+            {
+                if (s[i] == s[i + 1]) dels++;
+            }
+            return dels;
+        }
+
         public static int MakingAnagrams(string a, string b)
         {
             Dictionary<char, int> dict = new Dictionary<char, int>();
