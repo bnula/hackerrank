@@ -7,7 +7,13 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Strings.MakingAnagrams("cde", "abc"));
+            var arr = new List<string>
+            {
+                "abc",
+                "cba",
+                "bc"
+            };
+            Strings.Gemstones(arr);
         }
     }
 }
