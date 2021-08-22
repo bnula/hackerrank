@@ -10,25 +10,12 @@ namespace HackerRank
     {
         public static int Gemstones(List<string> arr)
         {
-            List<HashSet<char>> set = new List<HashSet<char>>();
+            var set = arr[0].ToHashSet();
             foreach (var str in arr)
             {
-                set.Add(str.ToHashSet());
+                set = str.ToHashSet().Intersect(set).ToHashSet();
             }
-            var d = new Dictionary<char, int>();
-            foreach (var item in set)
-            {
-                foreach (var chr in item)
-                {
-                    if (!d.ContainsKey(chr)) d.Add(chr, 1);
-                    else d[chr]++;
-                }
-            }
-            var gems = 0;
-            foreach (var min in d)
-            {
-                if (min.Value == arr.Count()) gems++;
-            }
+            int gems = set.Count;
             return gems;
         }
 
